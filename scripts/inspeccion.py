@@ -10,3 +10,15 @@
 #         - ticket promedio (ventas totales / clientes totales)
 #         - sucursal con mayor y menor venta
 #         - región con mayor venta total
+import pandas as pd
+
+ventas = pd.read_csv("data/ventas.csv")
+ventas["ticket"] = ventas["ventas"]/ventas["clientes"]
+print(ventas.head())
+
+print("Sucursal con mayo venta: ",
+      ventas.loc[ventas["ventas"].idxmax(), "sucursal"])
+print("Sucursal con menor venta: ", ventas.loc[ventas["ventas"].idxmin(), "sucursal"])
+ventas_por_region = ventas.groupby("region")["ventas"].sum()
+ventas_por_region.head()
+print( ventas_por_region.idxmax())
