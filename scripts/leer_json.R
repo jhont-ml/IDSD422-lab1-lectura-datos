@@ -5,3 +5,9 @@
 # TODO 1: carga data/ventas.json con jsonlite::fromJSON
 # TODO 2: convierte el resultado en data.frame si hace falta
 # TODO 3: imprime las dimensiones (dim) y las primeras filas (head)
+install.packages("jsonlite")
+library(jsonlite)
+ventas_json <- fromJSON("ventas.json")
+head(ventas)
+dim(ventas)
+str(ventas)
